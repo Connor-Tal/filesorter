@@ -1,31 +1,18 @@
 import time
 
 #open file and check how to convert it
-file = open('text.txt', 'r')
+fileName = 'test.txt'
+file = open(fileName, 'r')
 data = file.read()
 line = 0
 wordcount = 0
-keep = input('Do you want to keep to keep the original format (y)? Or have the program make a new line after each space (n)? (y/n)')
-
-#format the file or not
-if keep == 'y':
-    print('original data kept')
-if keep == 'n':
-    with open('text.txt', 'r') as file:
-        data = data.replace('\n', '\b')
-        data = data.replace('.', '.\n')
-
-    with open('text.txt', 'w') as file:
-        file.write(' ')
-        file.write(data)
-        file.close()
 
 keyword = input("What word are you searching for?")
 
 #mail loop
 while True:
     try:
-        with open('text.txt',"r") as file:
+        with open(fileName,"r") as file:
             content = file.readlines()
             #look through each line and seach for the keyword
             if content[line].__contains__(keyword):
